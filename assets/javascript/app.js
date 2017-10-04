@@ -27,7 +27,11 @@ $(document).ready(function() {
       console.log("The read failed: " + errorObject.code);
     });
 
+var game = {
+  player1: "";
+  player2: "";
 
+}
 var rps = ["r", "p", "s"];
 function playerOneChoices() {
   
@@ -66,3 +70,23 @@ playerTwoChoices()
 playerOneChoices();
 
 });
+
+function determineWinner() {
+  if ((player === "r") || (userGuess === "p") || (userGuess === "s")) {
+
+        if ((userGuess === "r") && (computerGuess === "s")) {
+          wins++;
+        } else if ((userGuess === "r") && (computerGuess === "p")) {
+          losses++;
+        } else if ((userGuess === "s") && (computerGuess === "r")) {
+          losses++;
+        } else if ((userGuess === "s") && (computerGuess === "p")) {
+          wins++;
+        } else if ((userGuess === "p") && (computerGuess === "r")) {
+          wins++;
+        } else if ((userGuess === "p") && (computerGuess === "s")) {
+          losses++;
+        } else if (userGuess === computerGuess) {
+          ties++;
+        }
+}
