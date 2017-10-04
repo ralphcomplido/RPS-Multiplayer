@@ -26,3 +26,43 @@ $(document).ready(function() {
     }, function(errorObject) {
       console.log("The read failed: " + errorObject.code);
     });
+
+
+var rps = ["r", "p", "s"];
+function playerOneChoices() {
+  
+  
+  for (var i = 0; i < rps.length; i++) {
+    var btn = $("<button>");
+  
+    btn.attr("data-choice", rps[i]);
+    btn.addClass("rps");
+    btn.html(rps[i]);
+    $(".playerOne-panel").append(btn);
+  }
+
+
+
+  
+}
+function playerTwoChoices() {
+  
+  
+  for (var i = 0; i < rps.length; i++) {
+    var btn = $("<button>");
+  
+    btn.attr("data-choice", rps[i]);
+    btn.addClass("rps");
+    btn.html(rps[i]);
+    $(".playerTwo-panel").append(btn);
+  }
+
+
+
+  
+}
+
+playerTwoChoices()
+playerOneChoices();
+
+});

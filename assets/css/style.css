@@ -32,9 +32,8 @@
   color: #fff;
 }
 .rps {
-  margin: 33px 2%;
-  font-size: 2em;
-  z-index: 3;
+  padding: 20px;
+  border: solid 2px black;
 }
 .rps-choice {
   font-size: 3em;
