@@ -28,65 +28,92 @@ $(document).ready(function() {
     });
 
 var game = {
-  player1: "";
-  player2: "";
+  player1: "",
+  player2: ""
 
 }
+var wins = 0;
+var losses = 0;
+var ties = 0;
+var playerOneDiv = $(".playerOne-panel");
+var playerTwoDiv = $(".playerTwo-panel");
+
 var rps = ["r", "p", "s"];
-function playerOneChoices() {
+
+function playerChoices(player, playerID) {
   
   
   for (var i = 0; i < rps.length; i++) {
     var btn = $("<button>");
   
-    btn.attr("data-choice", rps[i]);
+    btn.attr("data-choice", rps[i])
+       .attr("id", playerID);
     btn.addClass("rps");
+
     btn.html(rps[i]);
-    $(".playerOne-panel").append(btn);
+    player.append(btn);
   }
 
 
-
-  
-}
-function playerTwoChoices() {
-  
-  
-  for (var i = 0; i < rps.length; i++) {
-    var btn = $("<button>");
-  
-    btn.attr("data-choice", rps[i]);
-    btn.addClass("rps");
-    btn.html(rps[i]);
-    $(".playerTwo-panel").append(btn);
+$(".rps").unbind('click').click( function() {
+ 
+  if($(this).attr("id") === "player-1"){
+    game.player1 = $(this).attr("data-choice");
+    console.log(game.player1);
   }
-
-
-
-  
-}
-
-playerTwoChoices()
-playerOneChoices();
-
+  else if ($(this).attr("id") === "player-2"){
+    game.player2 = $(this).attr("data-choice");
+    console.log(game.player2);
+  };
+  determineWinner();
 });
 
-function determineWinner() {
-  if ((player === "r") || (userGuess === "p") || (userGuess === "s")) {
 
-        if ((userGuess === "r") && (computerGuess === "s")) {
+  
+}
+
+playerChoices(playerOneDiv, "player-1");
+playerChoices(playerTwoDiv, "player-2");
+
+
+  
+function resetChoice () {
+  if (wins + 1 || losses + 1 || ties + 1) {
+    game.player1 = "";
+    game.player1 = "";
+    console.log(game.player1);
+  }
+  else {console.log(game.player1)};
+}
+
+
+
+
+
+
+function determineWinner() {
+  if ((game.player1 === "r") || (game.player1 === "p") || (game.player1 === "s")) {
+
+        if ((game.player1 === "r") && (game.player2=== "s")) {
           wins++;
-        } else if ((userGuess === "r") && (computerGuess === "p")) {
+        } else if ((game.player1 === "r") && (game.player2=== "p")) {
           losses++;
-        } else if ((userGuess === "s") && (computerGuess === "r")) {
+        } else if ((game.player1 === "s") && (game.player2=== "r")) {
           losses++;
-        } else if ((userGuess === "s") && (computerGuess === "p")) {
+        } else if ((game.player1 === "s") && (game.player2=== "p")) {
           wins++;
-        } else if ((userGuess === "p") && (computerGuess === "r")) {
+        } else if ((game.player1 === "p") && (game.player2=== "r")) {
           wins++;
-        } else if ((userGuess === "p") && (computerGuess === "s")) {
+        } else if ((game.player1 === "p") && (game.player2=== "s")) {
           losses++;
-        } else if (userGuess === computerGuess) {
+        } else if (game.player1 === game.player2) {
           ties++;
         }
 }
+console.log("wins: " + wins);
+console.log("losses: " + losses);
+console.log("ties: " + ties);
+resetChoice();
+}
+ 
+});
