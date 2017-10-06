@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-// Initialize Firebase
+
    // game variables and methods
   var game = {
     // player variables
