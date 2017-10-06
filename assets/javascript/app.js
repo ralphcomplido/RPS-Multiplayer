@@ -154,7 +154,7 @@ $(document).ready(function() {
   firebase.initializeApp(config);
 
   var database = firebase.database();
-  
+
 var gameData = database.ref("/game");
 
   // listen for in game changes and respond accordingly 

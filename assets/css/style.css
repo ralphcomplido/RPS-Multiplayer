@@ -43,6 +43,8 @@ h2 {
   width: 90%;
   height: 30%;
   text-align: center;
+  font-size: 16px;
+  font-weight: bold;
 
 }
 
@@ -106,14 +108,7 @@ html, body {
   height: auto !important;
   margin: 0 auto -25px;
 }
-.footer, .push {
-  height: 25px;
-}
-.footer {
-  background-color: black;
-  position: relative;
-  top: 25px;
-}
+
 
 /*responsive*/
 @media screen and (max-width: 991px) {
