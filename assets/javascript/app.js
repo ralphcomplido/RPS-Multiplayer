@@ -142,15 +142,14 @@ $(document).ready(function() {
 
 
   
-  var config = {
+ var config = {
     apiKey: "AIzaSyCxU-ltr4XyVQhjB7xdCq-92qaxz10zCf0",
     authDomain: "rps-multiplayer-4c13c.firebaseapp.com",
     databaseURL: "https://rps-multiplayer-4c13c.firebaseio.com",
     projectId: "rps-multiplayer-4c13c",
-    storageBucket: "",
+    storageBucket: "rps-multiplayer-4c13c.appspot.com",
     messagingSenderId: "888487869526"
   };
-
   firebase.initializeApp(config);
 
   var database = firebase.database();
